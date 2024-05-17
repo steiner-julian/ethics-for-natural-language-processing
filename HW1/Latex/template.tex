@@ -1,0 +1,83 @@
+\documentclass[a4 paper]{article}
+% Set target color model to RGB
+\usepackage[inner=2.0cm,outer=2.0cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage[rgb]{xcolor}
+\usepackage{verbatim}
+\usepackage{subcaption}
+\usepackage{amsgen,amsmath,amstext,amsbsy,amsopn,tikz,amssymb}
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true, urlcolor=blue,  linkcolor=blue, citecolor=blue]{hyperref}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{rotating}
+\usepackage{enumitem}
+%\usetikzlibrary{through,backgrounds}
+\hypersetup{%
+pdfauthor={Aishik Mandal},%
+pdftitle={Homework 1},%
+pdfkeywords={Tikz,latex,bootstrap,uncertaintes},%
+pdfcreator={PDFLaTeX},%
+pdfproducer={PDFLaTeX},%
+}
+%\usetikzlibrary{shadows}
+% \usepackage[francais]{babel}
+\usepackage{booktabs}
+% \input{macros.tex}
+
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{section}
+
+\newcommand{\homework}[5]{
+   \pagestyle{myheadings}
+   \thispagestyle{plain}
+   \newpage
+   \setcounter{page}{1}
+   \noindent
+   \begin{center}
+   \framebox{
+      \vbox{\vspace{2mm}
+    \hbox to 6.28in { {\bf Ethics for NLP: SS 2024 \hfill {\small (#2)}} }
+       \vspace{6mm}
+       \hbox to 6.28in { {\Large \hfill #1  \hfill} }
+       \vspace{6mm}
+       \hbox to 6.28in {  {\it Name: {\rm #3}
+        %NetID: {\rm #4} 
+        \hfill Matriculation No.: {\rm #5}} }
+      \vspace{2mm}}
+   }
+   \end{center}
+   \markboth{#5 -- #1}{#5 -- #1}
+   \vspace*{4mm}
+}
+
+\newcommand{\problem}[2]{~\\\fbox{\textbf{Problem #1}}\newline\newline}
+\newcommand{\subproblem}[1]{~\newline\textbf{(#1)}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\Hy}{\mathcal{H}}
+\newcommand{\VS}{\textrm{VS}}
+
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bepsilon}{\boldsymbol{\epsilon}}
+\newcommand{\balpha}{\boldsymbol{\alpha}}
+\newcommand{\bbeta}{\boldsymbol{\beta}}
+\newcommand{\0}{\mathbf{0}}
+\newcommand{\code}[1]{\texttt{#1}}
+
+
+\begin{document}
+\homework{Homework 1}{Due: 29 May 2024, 11:59pm}{$<$your name$>$}{}{$<$your matriculation number$>$}
+
+%Read all the instructions carefully before you start working on the assignment, and before you make a submission.
+
+\end{document}
