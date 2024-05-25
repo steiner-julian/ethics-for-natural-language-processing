@@ -166,3 +166,9 @@ cython_debug/
 *.log
 *.out
 *.synctex.gz
+
+# Dataset of Homework 1
+HW1/__MACOSX/
+HW1/SemEval2018-Task1-AIT-Test-gold/
+HW1/*.zip
+HW1/2018-Valence-reg-En-train.txt
