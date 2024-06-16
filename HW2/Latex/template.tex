@@ -24,6 +24,20 @@ pdfproducer={PDFLaTeX},%
 \usepackage{booktabs}
 % \input{macros.tex}
 
+\usepackage{float}
+
+\newlength{\Lnote}
+\newcommand{\notte}[1]
+     {\addtolength{\leftmargini}{4em}
+        \settowidth{\Lnote}{\textbf{Note:~}}
+        \begin{quote}
+            \rule{\dimexpr\textwidth-2\leftmargini}{1pt}\\
+                        \mbox{}\hspace{-\Lnote}\textbf{Note:~}%
+                                            #1\\[-0.5ex] 
+            \rule{\dimexpr\textwidth-2\leftmargini}{1pt}
+        \end{quote}
+        \addtolength{\leftmargini}{-4em}}
+
 \newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
 
 \newtheorem{thm}{Theorem}[section]
@@ -76,8 +90,249 @@ pdfproducer={PDFLaTeX},%
 
 
 \begin{document}
-\homework{Homework 2}{Due: 19 June 2024, 11:59pm}{$<$your name$>$}{}{$<$your matriculation number$>$}
+\homework{Homework 2}{Due: 19 June 2024, 11:59pm}{Julian Steiner}{}{2669944}
 
 %Read all the instructions carefully before you start working on the assignment, and before you make a submission.
+
+\problem{1}{}
+\subproblem{1.1}
+\begin{table}[h!]
+    \centering
+    \caption{3-anonymit Crime Data by State in Germany}
+    \label{tab:crime_data}
+    \begin{tabular}{ccccccl}
+        \toprule
+        \textbf{(id)} & \textbf{Name} & \textbf{Age} & \textbf{Gender} & \textbf{State of Germany} & \textbf{Crime} \\ \midrule
+        1  & *  & 30-39  & Male   & Rhineland-Palatinate   & Murder   \\ \midrule
+        2  & *  & 20-29  & Female & Bavaria                & Murder   \\ \midrule
+        3  & *  & 30-39  & Female & North Rhine-Westphalia & Robbery  \\ \midrule
+        4  & *  & 30-39  & Male   & Rhineland-Palatinate   & Assault  \\ \midrule
+        5  & *  & 20-29  & Female & Bavaria                & Robbery  \\ \midrule
+        6  & *  & 30-39  & Female & North Rhine-Westphalia & Murder   \\ \midrule
+        7  & *  & 30-39  & Male   & Rhineland-Palatinate   & Parking  \\ \midrule
+        8  & *  & 10-19  & Male   & Hesse                  & Murder   \\ \midrule
+        9  & *  & 30-39  & Female & North Rhine-Westphalia & Parking  \\ \midrule
+        10 & *  & 20-29  & Female & Bavaria                & Speeding \\ \midrule
+        11 & *  & 10-19  & Male   & Hesse                  & Robbery  \\ \midrule
+        12 & *  & 30-39  & Male   & North Rhine-Westphalia & Assault  \\ \midrule
+        13 & *  & 30-39  & Male   & North Rhine-Westphalia & Speeding \\ \midrule
+        14 & *  & 10-19  & Male   & Hesse                  & Speeding \\ \midrule
+        15 & *  & 30-39  & Male   & North Rhine-Westphalia & Murder   \\ \bottomrule
+    \end{tabular}
+\end{table}
+
+\subproblem{1.2}
+
+\begin{itemize}
+    \item Crime: Murder, Assault, Parking $\Rightarrow$ l-diversity $\Rightarrow$ 3
+    \begin{table}[H]
+        \centering
+        \caption{Group 1 - Crime Data by State in Germany}
+        \label{tab:crime_data-1}
+        \begin{tabular}{cccccc}
+            \toprule
+            \textbf{(id)} & \textbf{Name} & \textbf{Age} & \textbf{Gender} & \textbf{State of Germany} & \textbf{Crime} \\ \midrule
+            1  & *  & 30-39  & Male   & Rhineland-Palatinate   & Murder   \\ \midrule
+            4  & *  & 30-39  & Male   & Rhineland-Palatinate   & Assault  \\ \midrule
+            7  & *  & 30-39  & Male   & Rhineland-Palatinate   & Parking  \\ \bottomrule
+        \end{tabular}
+    \end{table}
+
+    \pagebreak
+        
+    \item Crime: Murder, Robbery, Speeding $\Rightarrow$ l-diversity $\Rightarrow$ 3
+    \begin{table}[H]
+        \centering
+        \caption{Group 2 - Crime Data by State in Germany}
+        \label{tab:crime_data-2}
+        \begin{tabular}{cccccc}
+            \toprule
+            \textbf{(id)} & \textbf{Name} & \textbf{Age} & \textbf{Gender} & \textbf{State of Germany} & \textbf{Crime} \\ \midrule
+            2  & *  & 20-29  & Female & Bavaria                & Murder   \\ \midrule
+            5  & *  & 20-29  & Female & Bavaria                & Robbery  \\ \midrule
+            10 & *  & 20-29  & Female & Bavaria                & Speeding \\ \bottomrule
+        \end{tabular}
+    \end{table}
+
+    \item Crime: Robbery, Murder, Parking $\Rightarrow$ l-diversity $\Rightarrow$ 3
+    \begin{table}[H]
+        \centering
+        \caption{Group 3 - Crime Data by State in Germany}
+        \label{tab:crime_data-3}
+        \begin{tabular}{cccccc}
+            \toprule
+            \textbf{(id)} & \textbf{Name} & \textbf{Age} & \textbf{Gender} & \textbf{State of Germany} & \textbf{Crime} \\ \midrule
+            3  & *  & 30-39  & Female & North Rhine-Westphalia & Robbery  \\ \midrule
+            6  & *  & 30-39  & Female & North Rhine-Westphalia & Murder   \\ \midrule
+            9  & *  & 30-39  & Female & North Rhine-Westphalia & Parking  \\ \bottomrule
+        \end{tabular}
+    \end{table}
+
+    \item Crime: Murder, Robbery, Speeding $\Rightarrow$ l-diversity $\Rightarrow$ 3
+    \begin{table}[H]
+        \centering
+        \caption{Group 4 - Crime Data by State in Germany}
+        \label{tab:crime_data-4}
+        \begin{tabular}{cccccc}
+            \toprule
+            \textbf{(id)} & \textbf{Name} & \textbf{Age} & \textbf{Gender} & \textbf{State of Germany} & \textbf{Crime} \\ \midrule
+            8  & *  & 10-19  & Male   & Hesse                  & Murder   \\ \midrule
+            11 & *  & 10-19  & Male   & Hesse                  & Robbery  \\ \midrule
+            14 & *  & 10-19  & Male   & Hesse                  & Speeding \\ \bottomrule
+        \end{tabular}
+    \end{table}
+
+    \item Crime: Assault, Speeding, Murder $\Rightarrow$ l-diversity $\Rightarrow$ 3
+    \begin{table}[H]
+        \centering
+        \caption{Group 5 - Crime Data by State in Germany}
+        \label{tab:crime_data-5}
+        \begin{tabular}{cccccc}
+            \toprule
+            \textbf{(id)} & \textbf{Name} & \textbf{Age} & \textbf{Gender} & \textbf{State of Germany} & \textbf{Crime} \\ \midrule
+            12 & *  & 30-39  & Male   & North Rhine-Westphalia & Assault  \\ \midrule
+            13 & *  & 30-39  & Male   & North Rhine-Westphalia & Speeding \\ \midrule
+            15 & *  & 30-39  & Male   & North Rhine-Westphalia & Murder   \\ \bottomrule
+        \end{tabular}
+    \end{table}
+\end{itemize}
+
+\notte{From the above equivalence classes, each class has 3 unique crimes. Therefore, the l-diversity of the modified table is 3.}
+
+\pagebreak
+
+\subproblem{1.3}
+
+\begin{table}[H]
+    \centering
+    \caption{Group 1 - Crime Data by State in Germany}
+    \label{tab:crime_data-1-t-closeness}
+    \begin{tabular}{cccccc}
+        \toprule
+        \textbf{(id)} & \textbf{Name} & \textbf{Age} & \textbf{Gender} & \textbf{State of Germany} & \textbf{Crime} \\ \midrule
+        1  & *  & 30-39  & Male   & Rhineland-Palatinate   & Murder   \\ \midrule
+        4  & *  & 30-39  & Male   & Rhineland-Palatinate   & Assault  \\ \midrule
+        7  & *  & 30-39  & Male   & Rhineland-Palatinate   & Parking  \\ \bottomrule
+    \end{tabular}
+\end{table}
+
+\begin{itemize}
+  \item \textbf{Q $\rightarrow$ General Distribution}
+  \begin{itemize}
+    \item Assault $\rightarrow$ 2/15 $\rightarrow$ 0.133
+    \item Murder $\rightarrow$ 5/15 $\rightarrow$ 0.333
+    \item Parking $\rightarrow$ 2/15 $\rightarrow$ 0.133
+    \item Robbery $\rightarrow$ 3/15 $\rightarrow$ 0.2
+    \item Speeding $\rightarrow$ 3/15 $\rightarrow$ 0.2
+  \end{itemize}
+\end{itemize}
+
+$$
+  Q = (0.133, 0.333, 0.133, 0.2, 0.2)
+$$
+
+\begin{itemize}
+  \item \textbf{P $\rightarrow$ Distribution of equivalence class}
+  \begin{itemize}
+    \item Assault $\rightarrow$ 1/3 $\rightarrow$ 0.333
+    \item Murder $\rightarrow$ 1/3 $\rightarrow$ 0.333
+    \item Parking $\rightarrow$ 1/3 $\rightarrow$ 0.333
+    \item Robbery $\rightarrow$ 0/3 $\rightarrow$ 0.0
+    \item Speeding $\rightarrow$ 0/3 $\rightarrow$ 0.0
+  \end{itemize}
+\end{itemize}
+
+$$
+  P = (0.333, 0.333, 0.333, 0.0, 0.0)
+$$
+
+\begin{itemize}
+    \item \textbf{t-closeness}
+\end{itemize}
+
+$$
+D(P,Q) = \sum_{i=1}^m \frac{1}{2} | p_i - q_i | = 
+$$
+$$
+= \frac{1}{2} * (|0.133 - 0.333| + |0.333 - 0.333| + |0.133 - 0.333| + |0.2-0.0| + |0.2 - 0.0|) = 
+$$
+$$
+= \frac{1}{2} * 0.8 = 0.4
+$$
+
+\pagebreak
+
+\problem{2}{}
+
+See jupyter notebook for function implementation. The results of the function shown in \ref{tab:differential_privacy_results}.
+
+\begin{table}[ht]
+    \centering
+    \begin{tabular}{rrrrr}
+        \toprule
+        \textbf{p} & \textbf{X\_0} & \textbf{X\_1} & \textbf{Y\_0} & \textbf{Y\_1} \\
+        \midrule
+        0.0 & 0.8 & 0.2 & 0.20 & 0.80 \\ \midrule
+        0.2 & 0.8 & 0.2 & 0.32 & 0.68 \\ \midrule
+        0.5 & 0.8 & 0.2 & 0.50 & 0.50 \\ \midrule
+        0.8 & 0.8 & 0.2 & 0.68 & 0.32 \\ \midrule
+        1.0 & 0.8 & 0.2 & 0.80 & 0.20 \\
+        \bottomrule
+    \end{tabular}
+    \caption{}
+    \label{tab:differential_privacy_results}
+\end{table}
+
+\begin{itemize}
+    \item \textbf{Privacy}
+    \begin{itemize}
+        \item \textbf{p=0 and p=1}:
+            \begin{itemize}
+                \item When \(p=0\), the noisy distribution \( Y \) is exactly the reverse of the true distribution \( X \). This provides no privacy because the distribution \( Y \) directly reveals the opposite of \( X \).
+                \item When \(p=1\), the noisy distribution \( Y \) is identical to the true distribution \( X \). This also provides no privacy because \( Y \) is exactly \( X \).
+            \end{itemize}
+        \item \textbf{p=0.5}:
+            When \(p=0.5\), the noisy distribution \( Y \) becomes uniform (i.e., \( Y=[0.5,0.5] \)). This provides the highest level of privacy because \( Y \) does not reveal any information about the true distribution \( X \).
+        \item \textbf{p=0.2 and p=0.8}:
+            These intermediate values provide a balance between privacy and utility. As \( p \) moves away from 0.5 towards 0 or 1, the privacy decreases because \( Y \) starts resembling \( X \) more closely.
+        \end{itemize}
+    \item \textbf{Utility}
+    \begin{itemize}
+        \item \textbf{p=0 and p=1}:
+            These values provide maximum utility because \( Y \) is either exactly \( X \) or exactly the reverse of \( X \). There is a clear correspondence between \( Y \) and \( X \), making \( Y \) highly useful for accurate analysis.
+        \item \textbf{p=0.5}:
+            When \(p=0.5\), the utility is the lowest because the noisy distribution \( Y \) is uniform and does not reflect the true distribution \( X \) at all. This makes \( Y \) less useful for analysis.
+        \item \textbf{p=0.2 and p=0.8}:
+            These intermediate values provide a balance between privacy and utility. As \( p \) moves away from 0.5 towards 0 or 1, the utility increases because \( Y \) starts resembling \( X \) more closely.
+    \end{itemize}
+\end{itemize}
+
+\pagebreak
+
+\problem{3}{}
+
+\begin{itemize}
+    \item Text 1
+
+    Had such a blast hanging out with [NAME] and [NAME] in \#[LOC] [DATE]! We explored the city, went to the \#[LOC]Zoo, and had an awesome time. It’s always a good time catching up with old friends and making new memories together. [LOC] has so much character – definitely need to come back soon! Thanks for the awesome day, [NAME] and [NAME]. Let’s do it again sometime! \#Friends \#[LOC] \#FB20 \#TUDA
+
+
+    \item Text 2
+        
+        Date: [DATE]
+        
+        To: [URL], [URL], [URL], [URL]
+        
+        Title: RE: RE: RE: website
+        
+        Dear website team,
+        
+        here is a kick-off mail for the website. Format – a github page which lists some papers, between [URL] (too little info) and [URL] (too much for now). For starters, we’d pick 50 papers from the list we already made [URL]. [NAME] has kindly agreed to lead the work on this. [NAME] has agreed to develop the site. [NAME] and [NAME] have agreed to help with selecting papers and giving feedback. We need to have it running by [DATE] to link it in the paper. With that, I pass it to [NAME].
+        
+        I guess the first step is setting up the repo and adding all people in this thread as Maintainers. My Github account is [URL]. If there are any questions, please let me know, if something urgent pops up, give me a call at [PHONE].
+        
+        Best,
+        
+\end{itemize}
 
 \end{document}
