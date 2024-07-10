@@ -1,0 +1,190 @@
+\documentclass[a4 paper]{article}
+% Set target color model to RGB
+\usepackage[inner=2.0cm,outer=2.0cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage[rgb]{xcolor}
+\usepackage{verbatim}
+\usepackage{subcaption}
+\usepackage{amsgen,amsmath,amstext,amsbsy,amsopn,tikz,amssymb}
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true, urlcolor=blue,  linkcolor=blue, citecolor=blue]{hyperref}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{rotating}
+\usepackage{enumitem}
+%\usetikzlibrary{through,backgrounds}
+\hypersetup{%
+pdfauthor={Aishik Mandal},%
+pdftitle={Homework 0},%
+pdfkeywords={Tikz,latex,bootstrap,uncertaintes},%
+pdfcreator={PDFLaTeX},%
+pdfproducer={PDFLaTeX},%
+}
+%\usetikzlibrary{shadows}
+% \usepackage[francais]{babel}
+\usepackage{booktabs}
+% \input{macros.tex}
+
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{section}
+
+\newcommand{\homework}[5]{
+   \pagestyle{myheadings}
+   \thispagestyle{plain}
+   \newpage
+   \setcounter{page}{1}
+   \noindent
+   \begin{center}
+   \framebox{
+      \vbox{\vspace{2mm}
+    \hbox to 6.28in { {\bf Ethics for NLP: SS 2024 \hfill {\small (#2)}} }
+       \vspace{6mm}
+       \hbox to 6.28in { {\Large \hfill #1  \hfill} }
+       \vspace{6mm}
+       \hbox to 6.28in {  {\it Name: {\rm #3}
+        %NetID: {\rm #4} 
+        \hfill Matriculation No.: {\rm #5}} }
+      \vspace{2mm}}
+   }
+   \end{center}
+   \markboth{#5 -- #1}{#5 -- #1}
+   \vspace*{4mm}
+}
+
+\newcommand{\problem}[2]{~\\\fbox{\textbf{Problem #1}}\newline\newline}
+\newcommand{\subproblem}[1]{~\newline\textbf{(#1)}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\Hy}{\mathcal{H}}
+\newcommand{\VS}{\textrm{VS}}
+
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bepsilon}{\boldsymbol{\epsilon}}
+\newcommand{\balpha}{\boldsymbol{\alpha}}
+\newcommand{\bbeta}{\boldsymbol{\beta}}
+\newcommand{\0}{\mathbf{0}}
+\newcommand{\code}[1]{\texttt{#1}}
+
+
+\begin{document}
+\homework{Homework 4}{Due: 17 July 2024, 11:59pm}{Julian Steiner}{}{2669944}
+
+%Read all the instructions carefully before you start working on the assignment, and before you make a submission.
+
+\problem{1}{}
+
+\subproblem{1.1}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|p{10cm}|c|}
+\hline
+\textbf{Sentence} & \textbf{Score} \\
+\hline
+AI can understand and respond to your queries, making it feel like you're having a conversation with a knowledgeable friend & 4.539 \\
+\hline
+LLMs can craft stories and ideas, sparking creativity and imagination in ways that feel deeply personal & 1.098 \\
+\hline
+ChatGPT has feelings & 4.175 \\
+\hline
+Siri remembers everything I have ever told her & 9.013 \\
+\hline
+ChatGPT will replace me as a programmer and software developer & 4.029 \\
+\hline
+\end{tabular}
+\caption{Anthropomorphisation - Humanizing Sentences}
+\label{table:humanizing_sentences}
+\end{table}
+
+\subproblem{1.2}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|p{10cm}|c|}
+\hline
+  \textbf{Sentence} & \textbf{Score} \\
+  \hline
+  AI models or artificial intelligence models are programs that detect specific patterns using a collection of data sets & -2.242 \\
+  \hline
+  AI covers a wide range of tools and methods that replicate human intelligence in machines & -3.111 \\
+  \hline
+  Machine learning is a subset of AI that includes teaching machines to learn from data and make predictions or judgments based on that data & -6.227 \\
+  \hline
+  NLP is the ability of a computer program to understand human language as it's spoken and written & -5.027 \\
+  \hline
+  Google Gemini is a family of multimodal large language models developed by Google DeepMind, serving as the successor to LaMDA and PaLM 2 & -4.159 \\
+  \hline
+\end{tabular}
+\caption{Anthropomorphisation - Non-Humanizing Sentences}
+\label{table:non-humanizing_sentences}
+\end{table}
+
+\subproblem{1.3}
+
+The scores calculated by AnthroScore align with my expectations. The Humanizing sentences contained words that are human-like for example understand, respond, feelings, remembering etc. The non-humanizing sentences in general only describe the technologies. The human-like words in the non-humanizing sentences, for example learn, human intelligence, etc. are very often used in the context of machine learning and AI.
+
+\pagebreak
+
+\problem{2}{×}
+
+\subproblem{2.1}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Item} & \textbf{Category} \\ \hline
+Long-short Term Memory Networks (LSTMs) & (S1) Fundamental Theories \\ \hline
+Research prototype of a face detection system & (S3) Applicable Tools \\ \hline
+A face search engine application & (S4) Deployed Applications \\ \hline
+A benchmark for evaluating natural language understanding & (S2) Building Blocks \\ \hline
+Argumentation theory & (S1) Fundamental Theories \\ \hline
+The AnthroScore demo from the previous task & (S3) Applicable Tools \\ \hline
+Grammarly & (S4) Deployed Applications \\ \hline
+The Flair library & (S3) Applicable Tools \\ \hline
+\end{tabular}
+\caption{Categorization of Items}
+\label{table:categorization}
+\end{table}
+
+\subproblem{2.2}
+
+LSTMs have a broader potential impact. LSTMs are a fundamental theory/technology with a broad impact on downstream technologies. For example they used in various applications like time series prediction, speech recognition, and machine translation.
+
+The impact of Grammarly is easier to measure. The impact of Grammarly could for example be expressed as how many users are using the application, how satisfied the users are, and how well the grammar has been improved. The impact of LSTMs is difficult to measure. For example, with many products and applications we don't know what technology is behind them in detail. It could be an LSTM, but it could also be a different method.
+
+\problem{3}{×}
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{|p{12cm}|l|}
+\hline
+\textbf{Original Comment} & \textbf{Type} \\
+\hline
+(in Wikipedia discussion) "Could you PLEASE stop being a formatting warrior and wasting everyone’s time" & DH0: Name calling \\
+\hline
+"Nah, I disagree" & DH3: Contradiction \\
+\hline
+"I don’t think you know what you are talking about, I bet you never lived in London for longer than a month" & DH1: Ad hominem \\
+\hline
+"This is a common misconception about vaccines. It is based on the publication from several years ago, that has been since then retracted. The Nature journal made an editorial about this, here is a link" & DH5: Refutation \\
+\hline
+(in a peer review) "The language of the paper is very complex and the figures are poorly formatted, thus I recommend it to be rejected." & DH4: Counterargument \\
+\hline
+\end{tabular}
+\caption{Classified Sentences in Graham's Disagreement Hierarchy}
+\label{tab:discourse-types}
+\end{table}
+
+The only sentence I was unsure about was sentence b: "Nah, I disagree". I found on grammarly\footnote{\href{https://www.grammarly.com/blog/nah-meaning/}{grammarly - What Does Nah Mean?}} the following definition: "Nah means no. You can use it the same way you use no to respond to questions, but remember that it’s very casual. Using nah in formal situations may seem disrespectful." So I think to determine the correct hierarchy level (DH2 or DH3), we would need the context of the conversation.
+
+\end{document}
